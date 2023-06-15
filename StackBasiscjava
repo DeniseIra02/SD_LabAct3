@@ -1,0 +1,57 @@
+//StackBasic
+
+public class StackBasic {
+    private int maxSize;
+    private int top;
+    private int[] stackArray;
+
+    // constructor
+    public StackBasic(int size) {
+        maxSize = size;
+        stackArray = new int[maxSize];
+        top = -1; // initially stack is empty
+    }
+
+    // Add element to top of stack
+    public void push() {
+        if (top < maxSize - 1) { //check if the stack is not full
+            int element
+            top++;
+            stackArray[top] = element;
+            System.out.println("The element " + element + " successfully pushed to the stack."); //if condition - element being pushed
+        } else {
+            System.out.println("Stack is full. " + element + " cannot be pushed to the stack."); //else condition - stack is full
+        }
+    }
+
+    // Remove element from top of stack
+    public void pop() {
+        if (top >= 0) { //check if stack is not empty
+            int poppedElement = stackArray[top];
+            top--;
+            System.out.println("The element " + poppedElement + " is popped/removed from the stack."); //if condition - element being popped
+        } else {
+            System.out.println("Stack is empty. Cannot pop an element."); // else condition - stack is empty
+        }
+    }
+
+    // Return top of stack
+    public int peek() {
+        if (top >= 0) { //check if stack is not empty
+            return stackArray[top]; //if condition - return top
+        } else {
+            System.out.println("Stack is empty. Cannot peek an element."); // else condition - cannot return 
+            return -1; // return a default value indicating an empty stack
+        }
+    }
+
+    public static void main(String[] args) {
+        StackBasic stack = new StackBasic(3);
+        stack.push(1);
+        stack.push(2);
+        
+        System.out.println("Top element: " + stack.peek());
+        stack.pop();
+        System.out.println("Top element: " + stack.peek());
+    }
+}
